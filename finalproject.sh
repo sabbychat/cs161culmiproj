@@ -109,7 +109,7 @@ echo "***********************************************"
 			echo Chosen File\: 
 			read file
 			echo
-			echo"***********************************************"
+			echo "***********************************************"
 			echo
 			echo Shortest Job First Algorithm
 			echo
@@ -123,7 +123,7 @@ echo "***********************************************"
 			awk -F "," '{
 				process++;
 				{if(end>$3)
-					{wait=end-$2}
+					{wait=$2}
 				else
 					{wait=0};
 					avewait+=wait;}
@@ -146,12 +146,11 @@ echo "***********************************************"
 				split(gchart, chart, ":");
 				split(numbers, num, ":");
 				split(beg, b, ":");
-				b[2]="0";
 				for(c in chart)
-					{printf "%" num[c] "-s" "|", chart[c]};
+					{printf "%" num[c] "-s" "", chart[c]};
 					printf "\n";
 				for(n in num)
-					{printf "%" num[n] "-s" "|", b[n]}
+					{printf "%" num[n] "-s", b[n]}
 					print end;
 				}' ./store.csv
 			;;
